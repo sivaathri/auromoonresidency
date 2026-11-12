@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-<?php include('navbar.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
+  <?php include('navbar.php'); ?>
   <img class="wave" src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png" alt="Wave Background" />
   <div class="container">
     <div class="card">

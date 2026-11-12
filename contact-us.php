@@ -131,7 +131,7 @@
             <div class="flex flex-col lg:flex-row items-start gap-8 lg:gap-10 xl:gap-14">
                 
                 <!-- ===================== LEFT: 4 INFO CARDS + FOLLOW US ===================== -->
-                <div class="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0 flex flex-col gap-3.5">
+                <div class="w-full lg:w-[320px] xl:w-[340px] flex-shrink-0 flex flex-col md:grid md:grid-cols-2 lg:flex lg:flex-col gap-3.5">
                     
                     <!-- 1. Call Us Card -->
                     <div class="flex items-start gap-3.5 p-3.5 sm:p-4 rounded-2xl bg-white/90 backdrop-blur-sm border border-stone-200/80 shadow-[0_4px_18px_rgba(0,0,0,0.03)] hover:border-[#D49B35]/50 hover:shadow-md transition-all duration-200">
@@ -189,7 +189,7 @@
                     </div>
 
                     <!-- Follow Us Row -->
-                    <div class="flex items-center gap-3 pt-2 pl-1">
+                    <div class="flex items-center gap-3 pt-2 pl-1 md:col-span-2 lg:col-span-1">
                         <span class="text-xs font-bold text-[#142132]">Follow Us</span>
                         <div class="flex items-center gap-2.5">
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#F6ECD8] hover:bg-[#EBDBC8] text-[#8C5D19] flex items-center justify-center text-xs transition-all shadow-sm no-underline" title="Instagram">

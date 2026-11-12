@@ -72,7 +72,7 @@ $isCalendar = ($currentPage === 'Calendar.php');
             </a>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-7 lg:space-x-9">
+            <nav class="hidden lg:flex items-center space-x-7 xl:space-x-9">
                 <!-- Home Link -->
                 <div class="relative py-2 flex flex-col items-center">
                     <a href="./" class="text-[15px] font-medium transition-colors no-underline <?php echo $isHome ? 'text-[#1A2839] font-semibold' : 'text-gray-700 hover:text-[#C98B22]'; ?>">
@@ -101,6 +101,14 @@ $isCalendar = ($currentPage === 'Calendar.php');
                     <?php endif; ?>
                 </a>
 
+                <!-- Pricing Link -->
+                <a href="./OurPrices.php" class="text-[15px] font-medium transition-colors no-underline <?php echo $isPrices ? 'text-[#1A2839] font-semibold' : 'text-gray-700 hover:text-[#C98B22]'; ?>">
+                    Tariff
+                    <?php if ($isPrices): ?>
+                        <span class="block w-6 h-[3px] bg-[#E5A93C] rounded-full mt-1"></span>
+                    <?php endif; ?>
+                </a>
+
                 <!-- Contact Link -->
                 <a href="./contact-us.php" class="text-[15px] font-medium transition-colors no-underline <?php echo $isContact ? 'text-[#1A2839] font-semibold' : 'text-gray-700 hover:text-[#C98B22]'; ?>">
                     Contact
@@ -111,15 +119,15 @@ $isCalendar = ($currentPage === 'Calendar.php');
             </nav>
 
             <!-- Right CTA Button (Book Your Stay) -->
-            <div class="hidden md:flex items-center">
+            <div class="hidden lg:flex items-center">
                 <a href="./BookingPage.php" class="gold-btn inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-[14px] font-semibold text-[#1e170d] shadow-sm no-underline">
                     <i class="fa-regular fa-calendar-days text-[15px]"></i>
                     <span>Book Your Stay</span>
                 </a>
             </div>
 
-            <!-- Mobile Hamburger Button -->
-            <div class="flex items-center md:hidden">
+            <!-- Mobile & Tablet Hamburger Button -->
+            <div class="flex items-center lg:hidden">
                 <button id="mobileMenuBtn" aria-label="Open Navigation Menu" class="p-2 text-gray-800 hover:text-[#C98B22] focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
@@ -164,6 +172,18 @@ $isCalendar = ($currentPage === 'Calendar.php');
                 <a href="./Photos.php" class="flex items-center justify-between text-base font-medium text-gray-800 hover:text-[#C98B22] no-underline">
                     <span>Gallery</span>
                     <?php if ($isGallery): ?>
+                        <span class="w-2 h-2 rounded-full bg-[#E5A93C]"></span>
+                    <?php endif; ?>
+                </a>
+                <a href="./OurPrices.php" class="flex items-center justify-between text-base font-medium text-gray-800 hover:text-[#C98B22] no-underline">
+                    <span>Tariff &amp; Plans</span>
+                    <?php if ($isPrices): ?>
+                        <span class="w-2 h-2 rounded-full bg-[#E5A93C]"></span>
+                    <?php endif; ?>
+                </a>
+                <a href="./Calendar.php" class="flex items-center justify-between text-base font-medium text-gray-800 hover:text-[#C98B22] no-underline">
+                    <span>Calendar</span>
+                    <?php if ($isCalendar): ?>
                         <span class="w-2 h-2 rounded-full bg-[#E5A93C]"></span>
                     <?php endif; ?>
                 </a>
@@ -220,6 +240,13 @@ $isCalendar = ($currentPage === 'Calendar.php');
         if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMenu);
         if (closeMobileMenu) closeMobileMenu.addEventListener('click', closeMenu);
         if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
+
+        // Close on Escape key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('translate-x-full')) {
+                closeMenu();
+            }
+        });
 
         // Close drawer when mobile link is clicked
         const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];

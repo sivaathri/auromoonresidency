@@ -63,14 +63,14 @@ $statement->execute();
                 $result = $statement->fetchAll();
                 foreach ($result as $row) {
             ?>
-                    <div class="row align-items-center mt-3 shadow-lg p-3 mx-2" style="background-color: #c8d6e5; border-radius:10px" id='row<?php echo $row['id']; ?>'>
-                        <div class="col-md-4" style="align-self: center; color:darkslategray;">
-                            <div class="fs-4 fw-bold"><span><?php echo htmlspecialchars($row['name']); ?></span></div>
-                            <div class="fw-bold" data-bs-toggle="tooltip" title="EMAIL">
-                                <i class="fa fa-envelope"></i> <?php echo htmlspecialchars($row['email']); ?>
+                    <div class="row align-items-center mt-3 shadow-sm p-3 mx-0 border rounded-3" style="background-color: #f1f5f9;" id='row<?php echo $row['id']; ?>'>
+                        <div class="col-12 col-md-4 mb-2 mb-md-0" style="color:darkslategray;">
+                            <div class="fs-5 fw-bold text-dark"><span><?php echo htmlspecialchars($row['name']); ?></span></div>
+                            <div class="fw-semibold text-secondary small" data-bs-toggle="tooltip" title="EMAIL">
+                                <i class="fa fa-envelope me-1"></i> <?php echo htmlspecialchars($row['email']); ?>
                             </div>
-                            <div class="fw-bold" data-bs-toggle="tooltip" title="PHONE NUMBER">
-                                <i class="fa fa-phone"></i> <?php echo htmlspecialchars($row['phone']); ?>
+                            <div class="fw-semibold text-secondary small" data-bs-toggle="tooltip" title="PHONE NUMBER">
+                                <i class="fa fa-phone me-1"></i> <?php echo htmlspecialchars($row['phone']); ?>
                             </div>
                             <div class="mt-2">
                                 <span class="status-badge status-<?php echo $row['status']; ?>">
@@ -78,24 +78,26 @@ $statement->execute();
                                 </span>
                             </div>
                         </div>
-                        <div class="col-md-5" style="align-self: center;">
-                            <div class="fw-bold mb-1" style="color: #2d3436;">Message:</div>
-                            <div class="message-preview" style="color: #636e72;">
+                        <div class="col-12 col-md-5 mb-2 mb-md-0">
+                            <div class="fw-bold mb-1 small text-dark">Message:</div>
+                            <div class="message-preview text-muted small">
                                 <?php echo nl2br(htmlspecialchars($row['message'])); ?>
                             </div>
-                            <div class="mt-2 text-muted" style="font-size: 0.85em;">
-                                <i class="fa fa-clock-o"></i> <?php echo date('d-m-Y h:i A', strtotime($row['submitted_at'])); ?>
+                            <div class="mt-2 text-muted" style="font-size: 0.8em;">
+                                <i class="fa fa-clock-o me-1"></i> <?php echo date('d-m-Y h:i A', strtotime($row['submitted_at'])); ?>
                             </div>
                         </div>
-                        <div class="col-md-3 text-center py-3" style="align-self: center justify-content-center;">
-                            <?php if ($row['status'] == 'pending'): ?>
-                                <button type="button" class="mark-read btn shadow-none fw-bold btn-success m-1" id='<?php echo $row['id']; ?>'>
-                                    <i class="fa fa-check"></i> Mark as Read
+                        <div class="col-12 col-md-3 text-md-end text-center pt-2 pt-md-0">
+                            <div class="d-inline-flex gap-2 flex-wrap justify-content-center">
+                                <?php if ($row['status'] == 'pending'): ?>
+                                    <button type="button" class="mark-read btn btn-sm btn-success shadow-none fw-bold px-3 py-2" id='<?php echo $row['id']; ?>'>
+                                        <i class="fa fa-check me-1"></i> Mark Read
+                                    </button>
+                                <?php endif; ?>
+                                <button type="button" class="delete-contact btn btn-sm btn-outline-danger shadow-none fw-bold px-3 py-2" id='<?php echo $row['id']; ?>'>
+                                    <i class="fa fa-trash me-1"></i> Delete
                                 </button>
-                            <?php endif; ?>
-                            <button type="button" class="delete-contact btn shadow-none fw-bold btn-danger m-1" id='<?php echo $row['id']; ?>'>
-                                <i class="fa fa-trash"></i> Delete
-                            </button>
+                            </div>
                         </div>
                     </div>
                 <?php

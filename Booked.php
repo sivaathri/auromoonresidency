@@ -37,21 +37,21 @@ $statement->execute();
             if ($statement->rowCount() > 0) {
                 foreach ($statement as $rows) {
             ?>
-                    <div class="row align-items-center mt-3 shadow-lg p-2 mx-2" style="background-color: white; border-radius:10px" id="row<?php echo $rows['id']; ?>">
-                        <div class="col-md-2 text-center">
-                            <img src="assect/images/reserve.png" alt="pdf image" style="width: 100px;">
+                    <div class="row align-items-center mt-3 shadow-sm p-3 mx-0 border rounded-3 bg-white" id="row<?php echo $rows['id']; ?>">
+                        <div class="col-12 col-sm-3 col-md-2 text-center mb-2 mb-sm-0">
+                            <img src="assect/images/reserve.png" alt="Reserved" style="width: 70px; max-width: 100%;" class="img-fluid">
                         </div>
-                        <div class="col-md-4" style="align-self: center;">
-                            <div class=" fs-4 fw-bold"><span><?php echo $rows['name']; ?></span></div>
-                            <div class="fw-bold"><?php echo $rows['mobnumber']; ?></div>
-                            <div class="fw-bold"><?php echo $rows['aadhrno']; ?></div>
+                        <div class="col-12 col-sm-9 col-md-4 mb-2 mb-md-0">
+                            <div class="fs-5 fw-bold text-dark"><span><?php echo htmlspecialchars($rows['name']); ?></span></div>
+                            <div class="fw-semibold text-secondary small"><i class="fa fa-phone me-1"></i><?php echo htmlspecialchars($rows['mobnumber']); ?></div>
+                            <div class="fw-semibold text-secondary small"><i class="fa fa-id-card me-1"></i><?php echo htmlspecialchars($rows['aadhrno']); ?></div>
                         </div>
-                        <div class="col-md-4" style="align-self: center;">
-                            <div class="fs-4 fw-bold">Check-In : <span><?php echo date('d-m-Y', strtotime($rows['checkin'])); ?></span></div>
-                            <div class="fs-4 fw-bold">Check-Out : <span><?php echo date('d-m-Y', strtotime($rows['checkout'])); ?></span></div>
+                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                            <div class="fw-bold" style="color: #16a085; font-size: 0.95rem;"><i class="fa fa-calendar-check-o me-1"></i>In: <span><?php echo date('d-m-Y', strtotime($rows['checkin'])); ?></span></div>
+                            <div class="fw-bold" style="color: #138776; font-size: 0.95rem;"><i class="fa fa-calendar-times-o me-1"></i>Out: <span><?php echo date('d-m-Y', strtotime($rows['checkout'])); ?></span></div>
                         </div>
-                        <div class="col-md-1 text-center" style="align-self: center;">
-                            <button type="button" class="cancel btn shadow-none fw-bold btn-danger my-3" id='<?php echo $rows['id']; ?>'>Cancel</button>
+                        <div class="col-12 col-md-2 text-md-end text-center pt-2 pt-md-0">
+                            <button type="button" class="cancel btn btn-sm btn-outline-danger shadow-none fw-bold px-3 py-2" id='<?php echo $rows['id']; ?>'><i class="fa fa-ban me-1"></i>Cancel</button>
                         </div>
                     </div>
                 <?php }

@@ -313,9 +313,9 @@
 }
 
 .section-image {
-  width: 700px;
-  height: 400px; /* ⬅️ Increase this value as needed */
-  /* object-fit: contain; */
+  width: 100%;
+  max-width: 700px;
+  height: auto;
   border-radius: 0.75rem;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
 }
@@ -388,7 +388,7 @@
 
 
         <!-- Main Hero Overlay Content -->
-        <div class="relative z-10 w-full pl-8 sm:pl-16 md:pl-24 lg:pl-36 xl:pl-48 pr-4 sm:pr-8 md:pr-14 lg:pr-24 py-6 sm:py-10">
+        <div class="relative z-10 w-full px-4 min-[400px]:px-6 sm:pl-16 md:pl-24 lg:pl-36 xl:pl-48 pr-4 sm:pr-8 md:pr-14 lg:pr-24 py-6 sm:py-10">
             <div class="max-w-2xl text-left">
                 <!-- Eyebrow Subtitle -->
                 <p class="text-[#E8C782] text-xs sm:text-sm font-semibold tracking-[0.24em] uppercase mb-2.5 sm:mb-3.5 select-none font-brand-sans">
@@ -406,7 +406,7 @@
                 </p>
 
                 <!-- 3 Feature Badges -->
-                <div class="flex items-center gap-4 sm:gap-7 md:gap-9 mb-7 sm:mb-9 flex-wrap select-none">
+                <div class="flex items-center gap-4 sm:gap-7 md:gap-9 gap-y-3 mb-7 sm:mb-9 flex-wrap select-none">
                     <!-- Entire Property -->
                     <div class="flex items-center gap-3">
                         <div class="w-8 h-8 flex-shrink-0 flex items-center justify-center">
@@ -872,9 +872,9 @@ if (!function_exists('getHighResImg')) {
             <!-- ===================== AUROVILLE HIGHLIGHTS ===================== -->
             <div class="bg-white rounded-xl p-2.5 sm:p-3 border border-gray-200/70 shadow-xs flex flex-col justify-between">
                 <!-- Top Hero Banner Card -->
-                <div class="relative overflow-hidden rounded-lg border border-gray-200/60 bg-[#FFFDF8] flex flex-col md:flex-row mb-4 group">
+                <div class="relative overflow-hidden rounded-lg border border-gray-200/60 bg-[#FFFDF8] flex flex-col md:flex-row lg:flex-col xl:flex-row mb-4 group">
                     <!-- Image Left Side -->
-                    <div class="relative w-full md:w-[62%] h-44 sm:h-52 md:h-auto min-h-[190px] overflow-hidden flex-shrink-0">
+                    <div class="relative w-full md:w-[60%] lg:w-full xl:w-[60%] h-44 sm:h-52 md:h-auto min-h-[190px] overflow-hidden flex-shrink-0">
                         <img 
                             src="<?= getHighResImg('auroville_hero.jpg', 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1000&auto=format&fit=crop&q=85') ?>" 
                             alt="Matrimandir Auroville" 
@@ -884,7 +884,7 @@ if (!function_exists('getHighResImg')) {
                     </div>
 
                     <!-- Dividing SVG Wave with Gold Accents -->
-                    <div class="hidden md:block absolute right-[36%] top-0 bottom-0 w-24 h-full pointer-events-none z-10">
+                    <div class="hidden md:block lg:hidden xl:block absolute right-[38%] top-0 bottom-0 w-24 h-full pointer-events-none z-10">
                         <svg class="w-full h-full" viewBox="0 0 100 200" preserveAspectRatio="none">
                             <path d="M 100,0 C 40,25 15,70 15,100 C 15,130 40,175 100,200 L 100,200 L 100,0 Z" fill="#FFFDF8" />
                             <path d="M 100,0 C 55,18 28,45 20,75 C 28,40 65,15 100,0 Z" fill="#F6BC47" />
@@ -893,7 +893,7 @@ if (!function_exists('getHighResImg')) {
                     </div>
 
                     <!-- Content Right Side -->
-                    <div class="relative w-full md:w-[38%] bg-[#FFFDF8] p-4 sm:p-5 flex flex-col justify-between items-start z-10">
+                    <div class="relative w-full md:w-[40%] lg:w-full xl:w-[40%] bg-[#FFFDF8] p-4 sm:p-5 flex flex-col justify-between items-start z-10">
                         <div>
                             <!-- Gold Leaf Icon Badge -->
                             <div class="w-11 h-11 rounded-full bg-[#FEF4E0] text-[#E69B19] flex items-center justify-center text-lg mb-2 shadow-2xs">
@@ -1058,9 +1058,9 @@ if (!function_exists('getHighResImg')) {
             <!-- ===================== PONDICHERRY HIGHLIGHTS ===================== -->
             <div class="bg-white rounded-xl p-2.5 sm:p-3 border border-gray-200/70 shadow-xs flex flex-col justify-between">
                 <!-- Top Hero Banner Card -->
-                <div class="relative overflow-hidden rounded-lg border border-gray-200/60 bg-[#FFFDF8] flex flex-col md:flex-row mb-4 group">
+                <div class="relative overflow-hidden rounded-lg border border-gray-200/60 bg-[#FFFDF8] flex flex-col md:flex-row lg:flex-col xl:flex-row mb-4 group">
                     <!-- Image Left Side -->
-                    <div class="relative w-full md:w-[62%] h-44 sm:h-52 md:h-auto min-h-[190px] overflow-hidden flex-shrink-0">
+                    <div class="relative w-full md:w-[60%] lg:w-full xl:w-[60%] h-44 sm:h-52 md:h-auto min-h-[190px] overflow-hidden flex-shrink-0">
                         <img 
                             src="<?= getHighResImg('pondicherry_hero.jpg', 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=1000&auto=format&fit=crop&q=85') ?>" 
                             alt="White Town Pondicherry" 
@@ -1070,7 +1070,7 @@ if (!function_exists('getHighResImg')) {
                     </div>
 
                     <!-- Dividing SVG Wave with Gold Accents -->
-                    <div class="hidden md:block absolute right-[36%] top-0 bottom-0 w-24 h-full pointer-events-none z-10">
+                    <div class="hidden md:block lg:hidden xl:block absolute right-[38%] top-0 bottom-0 w-24 h-full pointer-events-none z-10">
                         <svg class="w-full h-full" viewBox="0 0 100 200" preserveAspectRatio="none">
                             <path d="M 100,0 C 40,25 15,70 15,100 C 15,130 40,175 100,200 L 100,200 L 100,0 Z" fill="#FFFDF8" />
                             <path d="M 100,0 C 55,18 28,45 20,75 C 28,40 65,15 100,0 Z" fill="#F6BC47" />
@@ -1079,7 +1079,7 @@ if (!function_exists('getHighResImg')) {
                     </div>
 
                     <!-- Content Right Side -->
-                    <div class="relative w-full md:w-[38%] bg-[#FFFDF8] p-4 sm:p-5 flex flex-col justify-between items-start z-10">
+                    <div class="relative w-full md:w-[40%] lg:w-full xl:w-[40%] bg-[#FFFDF8] p-4 sm:p-5 flex flex-col justify-between items-start z-10">
                         <div>
                             <!-- Monument Icon Badge -->
                             <div class="w-11 h-11 rounded-full bg-[#FEF4E0] text-[#E69B19] flex items-center justify-center text-lg mb-2 shadow-2xs">

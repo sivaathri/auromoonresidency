@@ -54,7 +54,7 @@
 
     <!-- Fullscreen Lightbox Modal -->
     <div class="fullScreenImg" id="lightboxModal">
-        <button id="closeLightbox" aria-label="Close image preview" class="absolute top-5 right-5 text-white/80 hover:text-white text-3xl p-2 focus:outline-none transition-colors">
+        <button id="closeLightbox" aria-label="Close image preview" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center text-2xl focus:outline-none transition-all cursor-pointer z-50 shadow-lg">
             <i class="fa-solid fa-xmark"></i>
         </button>
         <img src="" alt="Auro Moon Residency Preview" id="lightboxImg">

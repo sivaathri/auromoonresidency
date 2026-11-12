@@ -117,8 +117,10 @@ img {
 
 .first-banner {
     position: relative;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 100vh;
+    min-height: 560px;
     overflow: hidden;
     padding-top: 0;
 }
@@ -175,7 +177,8 @@ img {
 .banner-content {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -188,7 +191,8 @@ img {
 .banner-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 100vh;
     background: rgba(0,0,0,0.45);
     z-index: 1;
@@ -585,5 +589,192 @@ a[class*="text-[#1A2839]"]:hover * {
     color: #1a140c !important;
     text-decoration: none !important;
 }
+
+/* ========================================================
+   UNIVERSAL MULTI-DEVICE RESPONSIVE DESIGN SYSTEM
+   Supports:
+   - Extra Small Mobile: 320px - 374px (iPhone SE, Fold)
+   - Standard Mobile:    375px - 480px (iPhone 12-16, Galaxy)
+   - Large Mobile:       481px - 639px (Phablets, Landscape)
+   - Small Tablet:       640px - 767px
+   - Tablet Portrait:    768px - 1023px (iPads, Android Tabs)
+   - Laptop / Netbook:   1024px - 1279px (MacBook Air, iPad Pro)
+   - Standard Desktop:   1280px - 1535px (1080p Laptops/Monitors)
+   - Ultra-Wide / 4K:    1536px+ (2K/4K Displays)
+   ======================================================== */
+
+/* 1. Global Viewport & Safe-Area Reset */
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+}
+
+/* 2. Responsive Media Elements */
+img, svg, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+}
+
+iframe {
+    border: 0;
+}
+
+/* 3. Universal Section Image Fix */
+.section-image {
+    width: 100% !important;
+    max-width: 700px !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 4. Mobile Form Inputs: Prevent iOS Auto-Zoom */
+@media screen and (max-width: 767px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+        font-size: 16px !important; /* Prevents iOS Safari from zooming into the input */
+    }
+}
+
+/* 5. Google reCAPTCHA Responsive Scaling (Mobile < 380px) */
+.recaptcha-responsive-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+}
+
+@media screen and (max-width: 380px) {
+    .g-recaptcha,
+    .g-recaptcha > div,
+    .g-recaptcha iframe {
+        transform: scale(0.85);
+        transform-origin: 0 0;
+        -webkit-transform: scale(0.85);
+        -webkit-transform-origin: 0 0;
+    }
+    .recaptcha-responsive-container {
+        height: 68px;
+    }
+}
+
+@media screen and (max-width: 335px) {
+    .g-recaptcha,
+    .g-recaptcha > div,
+    .g-recaptcha iframe {
+        transform: scale(0.76);
+        transform-origin: 0 0;
+        -webkit-transform: scale(0.76);
+        -webkit-transform-origin: 0 0;
+    }
+    .recaptcha-responsive-container {
+        height: 62px;
+    }
+}
+
+/* 6. jQuery UI DatePicker Responsive Styles */
+@media screen and (max-width: 640px) {
+    .ui-datepicker {
+        width: 92vw !important;
+        max-width: 340px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        font-size: 13px !important;
+        padding: 8px !important;
+    }
+    .ui-datepicker table {
+        font-size: 12px !important;
+    }
+    .ui-datepicker td span,
+    .ui-datepicker td a {
+        padding: 6px 2px !important;
+    }
+}
+
+/* 7. FullCalendar Responsive Styles */
+@media screen and (max-width: 640px) {
+    .fc-toolbar {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+        align-items: center !important;
+    }
+    .fc-toolbar .fc-left,
+    .fc-toolbar .fc-right,
+    .fc-toolbar .fc-center {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        float: none !important;
+        margin: 0 !important;
+    }
+    .fc-toolbar h2 {
+        font-size: 1.15rem !important;
+        text-align: center !important;
+    }
+    .fc-button {
+        padding: 4px 10px !important;
+        font-size: 13px !important;
+        height: auto !important;
+    }
+    .fc th, .fc td {
+        font-size: 11px !important;
+    }
+}
+
+/* 8. Touch-friendly targets on mobile */
+@media (pointer: coarse) {
+    button,
+    a,
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 40px;
+    }
+}
+
+/* 9. Extra Small Screens (< 375px: iPhone SE, Galaxy Fold) */
+@media screen and (max-width: 374px) {
+    .banner-title {
+        font-size: 1.75rem !important;
+    }
+    .contact-info span {
+        font-size: 1.5rem !important;
+    }
+    .social-icon {
+        font-size: 2rem !important;
+    }
+    .section-title {
+        font-size: 1.75rem !important;
+    }
+}
+
+/* 10. Large Screens / Ultra-wide (> 1536px) */
+@media screen and (min-width: 1536px) {
+    .container,
+    .max-w-7xl {
+        max-width: 1480px;
+    }
+}
+
 
 

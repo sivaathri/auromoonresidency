@@ -2,7 +2,7 @@
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$databasename = "aahahomestayNew";
+$databasename = "auromoonresidency_db";
 
 $dbconn = new PDO("mysql:host=$hostname;dbname=$databasename", $username, $password);
 
@@ -14,4 +14,4 @@ if ($dbconn) {
     echo "somthing is wrong" . mysqli_connect_error();
 }
 
-//define('BASE_URL', 'http://localhost/AAHAHOMESTAY/');
+//define('BASE_URL', 'http://localhost/auromoonresidency/');

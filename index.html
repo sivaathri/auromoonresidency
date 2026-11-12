@@ -249,9 +249,9 @@
 }
 
 .section-image {
-  width: 700px;
-  height: 400px; /* ⬅️ Increase this value as needed */
-  /* object-fit: contain; */
+  width: 100%;
+  max-width: 700px;
+  height: auto;
   border-radius: 0.75rem;
   box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
 }
@@ -415,14 +415,14 @@
             </a>
 
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-7 lg:space-x-9">
+            <nav class="hidden lg:flex items-center space-x-7 xl:space-x-9">
                 <!-- Home Link -->
                 <div class="relative py-2 flex flex-col items-center">
                     <a href="./" class="text-[15px] font-medium transition-colors no-underline text-[#1A2839] font-semibold">
                         Home
                     </a>
-                                            <span class="block w-6 h-[3px] bg-[#E5A93C] rounded-full mt-1"></span>
-                                    </div>
+                    <span class="block w-6 h-[3px] bg-[#E5A93C] rounded-full mt-1"></span>
+                </div>
 
                 <!-- About Link -->
                 <a href="#about" class="text-[15px] font-medium text-gray-700 hover:text-[#C98B22] transition-colors no-underline">
@@ -437,17 +437,21 @@
                 <!-- Gallery Link -->
                 <a href="./Photos.php" class="text-[15px] font-medium transition-colors no-underline text-gray-700 hover:text-[#C98B22]">
                     Gallery
-                                    </a>
+                </a>
 
+                <!-- Pricing Link -->
+                <a href="./OurPrices.php" class="text-[15px] font-medium transition-colors no-underline text-gray-700 hover:text-[#C98B22]">
+                    Tariff
+                </a>
 
                 <!-- Contact Link -->
                 <a href="./contact-us.php" class="text-[15px] font-medium transition-colors no-underline text-gray-700 hover:text-[#C98B22]">
                     Contact
-                                    </a>
+                </a>
             </nav>
 
             <!-- Right CTA Button (Book Your Stay) -->
-            <div class="hidden md:flex items-center">
+            <div class="hidden lg:flex items-center">
                 <a href="./BookingPage.php" class="gold-btn inline-flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-[14px] font-semibold text-[#1e170d] shadow-sm no-underline">
                     <i class="fa-regular fa-calendar-days text-[15px]"></i>
                     <span>Book Your Stay</span>
@@ -455,7 +459,7 @@
             </div>
 
             <!-- Mobile Hamburger Button -->
-            <div class="flex items-center md:hidden">
+            <div class="flex items-center lg:hidden">
                 <button id="mobileMenuBtn" aria-label="Open Navigation Menu" class="p-2 text-gray-800 hover:text-[#C98B22] focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
@@ -591,7 +595,7 @@
 
 
         <!-- Main Hero Overlay Content -->
-        <div class="relative z-10 w-full pl-8 sm:pl-16 md:pl-24 lg:pl-36 xl:pl-48 pr-4 sm:pr-8 md:pr-14 lg:pr-24 py-6 sm:py-10">
+        <div class="relative z-10 w-full px-4 min-[400px]:px-6 sm:pl-16 md:pl-24 lg:pl-36 xl:pl-48 pr-4 sm:pr-8 md:pr-14 lg:pr-24 py-6 sm:py-10">
             <div class="max-w-2xl text-left">
                 <!-- Eyebrow Subtitle -->
                 <p class="text-[#E8C782] text-xs sm:text-sm font-semibold tracking-[0.24em] uppercase mb-2.5 sm:mb-3.5 select-none font-brand-sans">

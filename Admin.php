@@ -50,26 +50,28 @@ $statement->execute();
                 //print_r($result);
                 foreach ($result as $row) {
             ?>
-                    <div class="row align-items-center mt-3 shadow-lg p-2 mx-2" style="background-color: #c8d6e5; border-radius:10px" id='row<?php echo $row['id']; ?>'>
-                        <div class="col-md-4" style="align-self: center; color:darkslategray;">
-                            <div class=" fs-4 fw-bold"><span><?php echo $row['name']; ?></span></div>
-                            <div class="fw-bold" data-bs-toggle="tooltip" title="MOBILE NUMBER!"><?php echo $row['mobnumber']; ?></div>
-                            <div class="fs-5 fw-bold" data-bs-toggle="tooltip" title="AADHAR NUMBER!"><?php echo $row['aadhrno']; ?></div>
+                    <div class="row align-items-center mt-3 shadow-sm p-3 mx-0 border rounded-3" style="background-color: #f1f5f9;" id='row<?php echo $row['id']; ?>'>
+                        <div class="col-12 col-md-5 mb-2 mb-md-0" style="color:darkslategray;">
+                            <div class="fs-5 fw-bold text-dark"><span><?php echo htmlspecialchars($row['name']); ?></span></div>
+                            <div class="fw-semibold text-secondary small"><i class="fa fa-phone me-1"></i><?php echo htmlspecialchars($row['mobnumber']); ?></div>
+                            <div class="fw-semibold text-secondary small"><i class="fa fa-id-card me-1"></i><?php echo htmlspecialchars($row['aadhrno']); ?></div>
                             <?php if (!empty($row['aadhaar_pdf'])): ?>
-                                <a href="<?php echo htmlspecialchars($row['aadhaar_pdf']); ?>" target="_blank" style="display:inline-block;">
-                                    <img src="assect/logo/pdf-icon.png" alt="PDF" style="width:48px; height:48px; vertical-align:middle;">
+                                <a href="<?php echo htmlspecialchars($row['aadhaar_pdf']); ?>" target="_blank" class="d-inline-flex align-items-center gap-1 mt-1 text-decoration-none badge bg-white text-danger border">
+                                    <i class="fa fa-file-pdf-o text-danger"></i> View ID PDF
                                 </a>
                             <?php else: ?>
-                                <span style="color: #888; font-size: 0.9em;">No PDF</span>
+                                <span class="badge bg-light text-muted border mt-1">No PDF</span>
                             <?php endif; ?>
                         </div>
-                        <div class="col-md-5" style="align-self: center;">
-                            <div class="fs-4 fw-bold" style="color: #16a085;">Check-In : <span><?php echo date('d-m-Y', strtotime($row['checkin'])); ?></span></div>
-                            <div class="fs-4 fw-bold" style="color: #138776;">Check-Out : <span><?php echo date('d-m-Y', strtotime($row['checkout'])); ?></span></div>
+                        <div class="col-12 col-md-4 mb-2 mb-md-0">
+                            <div class="fw-bold" style="color: #16a085; font-size: 0.95rem;"><i class="fa fa-calendar-check-o me-1"></i>In: <span><?php echo date('d-m-Y', strtotime($row['checkin'])); ?></span></div>
+                            <div class="fw-bold" style="color: #138776; font-size: 0.95rem;"><i class="fa fa-calendar-times-o me-1"></i>Out: <span><?php echo date('d-m-Y', strtotime($row['checkout'])); ?></span></div>
                         </div>
-                        <div class="col-md-3 text-center py-3" style="align-self: center justify-content-center;">
-                            <button type="button" class="accept btn shadow-none fw-bold btn-success m-1" id='<?php echo $row['id']; ?>'>Accecpt</button>
-                            <button type="button" class="reject btn shadow-none fw-bold btn-danger m-1" id='<?php echo $row['id']; ?>'>Reject</button>
+                        <div class="col-12 col-md-3 text-md-end text-center pt-2 pt-md-0">
+                            <div class="d-inline-flex gap-2">
+                                <button type="button" class="accept btn btn-sm btn-success px-3 py-2 shadow-none fw-bold" id='<?php echo $row['id']; ?>'><i class="fa fa-check me-1"></i>Accept</button>
+                                <button type="button" class="reject btn btn-sm btn-danger px-3 py-2 shadow-none fw-bold" id='<?php echo $row['id']; ?>'><i class="fa fa-times me-1"></i>Reject</button>
+                            </div>
                         </div>
                     </div>
                 <?php
